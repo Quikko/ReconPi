@@ -9,6 +9,15 @@ import (
 	"github.com/labstack/echo"
 )
 
+// e.POST("/save", save)
+func save(c echo.Context) error {
+	// Get scan results
+	domain := c.FormValue("domain")
+	subdomain := c.FormValue("subdomain")
+	return c.String(http.StatusOK, "domain:" + domain + ", subdomain:" + subdomain)
+}
+
+
 func main() {
 	e := echo.New()
 	// the file server for rice. "app" is the folder where the files come from.
